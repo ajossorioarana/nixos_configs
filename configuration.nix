@@ -150,26 +150,29 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = let
+    unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  in with pkgs; [
     git
     htop
     neofetch
     calibre
     libreoffice-fresh
-    obsidian
+    unstable.obsidian
     vscode
     rustc
     cargo
     python3
     hugo
     google-chrome
-    googleearth-pro
+   #googleearth-pro
     qgis
     steam
     spotify
     stremio
-    slack
-  ];
+    unstable.slack
+    ];
+ 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
