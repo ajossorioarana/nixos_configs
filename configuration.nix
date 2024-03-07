@@ -41,6 +41,9 @@
     LC_TELEPHONE = "es_AR.UTF-8";
     LC_TIME = "es_AR.UTF-8";
   };
+  
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
