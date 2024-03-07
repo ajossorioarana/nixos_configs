@@ -154,6 +154,21 @@
     git
     htop
     neofetch
+    calibre
+    libreoffice-fresh
+    obsidian
+    vscode
+    rustc
+    cargo
+    python3
+    hugo
+    google-chrome
+    googleearth-pro
+    qgis
+    steam
+    spotify
+    stremio
+    slack
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
