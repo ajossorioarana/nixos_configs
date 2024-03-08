@@ -42,6 +42,12 @@
     LC_TIME = "es_AR.UTF-8";
   };
   
+  # Mount AJOA partition
+  fileSystems."/run/media/AJOA" = {
+    device = "/dev/disk/by-uuid/DCA6E502A6E4DE50";
+    options = ["nofail"];
+  };
+  
   # Enable bluetooth
   hardware.bluetooth.enable = true;
 
@@ -156,12 +162,13 @@
     git
     htop
     neofetch
+    ntfs3g
     calibre
     libreoffice-fresh
     unstable.obsidian
     vscode
     rustc
-    cargo
+    cargo    
     python3
     hugo
     google-chrome
@@ -172,7 +179,12 @@
     stremio
     unstable.slack
     ];
- 
+  
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  }; 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
